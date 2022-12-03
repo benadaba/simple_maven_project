@@ -9,7 +9,7 @@ pipeline{
         stage('Initialise') {
             steps {
             // One or more steps need to be included within the steps block.
-            echo "PATH" = ${$PATH}
+            echo "PATH" = ${PATH}
             echo "M2_HOME = ${M2_HOME}"
             }
         }
