@@ -1,23 +1,26 @@
-pipeline {
+pipeline{
     agent any
-    tools { 
-        maven 'maven3' 
+    tools {
         jdk 'jdk8'
+        maven 'maven3'   
     }
+
     stages {
-         stage ('Initialize') {
+        stage('Initialise') {
             steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
+            // One or more steps need to be included within the steps block.
+            echo "PATH" = ${$PATH}
+            echo "M2_HOME = ${M2_HOME}"
             }
         }
 
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'mvn clean install'
+            // One or more steps need to be included within the steps block.
+             sh "mvn clean install"
             }
         }
-    }
+
+}
+
 }
